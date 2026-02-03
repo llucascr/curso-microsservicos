@@ -1,5 +1,6 @@
 package com.curso.microsservico.pedido.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +15,7 @@ public class ItemPedido {
 
     @ManyToOne
     @JoinColumn(name = "pedido_id")
+    @JsonIgnoreProperties("itens")
     private Pedido pedido;
 
     public ItemPedido() {

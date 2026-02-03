@@ -27,7 +27,7 @@ public class PedidoController {
     @PostMapping
     public ResponseEntity<Pedido> salvarPedido(@RequestBody Pedido pedido) {
         Pedido pedidoSalvo = pedidoService.salvarPedido(pedido);
-        rabbitTemplate.convertAndSend("", routingKey, pedidoSalvo.getDescricao());
+        rabbitTemplate.convertAndSend("", routingKey, pedidoSalvo);
         return ResponseEntity.ok(pedidoSalvo);
     }
 
